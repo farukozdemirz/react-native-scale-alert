@@ -1,0 +1,22 @@
+{
+  "name": "react-native-scale-alert",
+  "version": "1.0.0",
+  "description": "A react native alert component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farukozdemirz/react-native-scale-alert.git"
+  },
+  "keywords": [
+    "react-native-alert"
+  ],
+  "author": "Faruk Ozdemir <frk.ozdmrr@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farukozdemirz/react-native-scale-alert/issues"
+  },
+  "homepage": "https://github.com/farukozdemirz/react-native-scale-alert#readme"
+}
