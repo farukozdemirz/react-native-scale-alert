@@ -3,7 +3,7 @@
 
 ### Demo 
 
-! [] (alert.gif)
+![alt text](http://res.cloudinary.com/rishabhbhatia/image/upload/c_scale,w_200/v1505042954/awesome-alerts/v1.0.3/react-native-awesome-alerts.gif)
 
 
 ## Getting Started
