@@ -3,7 +3,7 @@
 
 ### Demo 
 
-! [] (alert.gif)
+![react-native-scale-alert](alert.gif)
 
 
 ## Getting Started
