@@ -28,16 +28,16 @@ class Alert extends Component {
         var color;
         switch (status) {
             case 'success':
-                color = this.props.successColor ? this.props.successColor : '#93ebb6';
+                color = this.props.circleColor ? this.props.circleColor : '#93ebb6';
                 break;
             case 'error':
-                color = this.props.errorColor ? this.props.errorColor : '#E94141';
+                color = this.props.circleColor ? this.props.circleColor : '#E94141';
                 break;
             case 'warning':
-                color = this.props.warningColor ? this.props.warningColor : '#FFB703';
+                color = this.props.circleColor ? this.props.circleColor : '#FFB703';
                 break;
             case 'info':
-                color = this.props.infoColor ? this.props.infoColor : '#34C4FC';
+                color = this.props.circleColor ? this.props.circleColor : '#34C4FC';
                 break;
             default:
                 break;
@@ -47,20 +47,21 @@ class Alert extends Component {
 
     renderIcon = (status) => {
         var icon;
+        const { propIcon } = this.props;
 
         switch (status) {
             case 'success':
-                icon = require('./src/img/check.png');
+                icon = propIcon ? propIcon : require('./src/img/check.png');
                 break;
             case 'error':
-                icon = require('./src/img/close-cross.png');
+                icon = propIcon ? propIcon : require('./src/img/close-cross.png');
                 break;
             case 'warning':
-                icon = require('./src/img/warning.png');
+                icon = propIcon ? propIcon : require('./src/img/warning.png');
                 break;
             case 'info':
-                icon = require('./src/img/info.png');
-                break; x
+                icon = propIcon ? propIcon : require('./src/img/info.png');
+                break;
             default:
                 break;
         }
@@ -81,23 +82,25 @@ class Alert extends Component {
             inputRange: [0, 1],
             outputRange: [0, 1,]
         })
-        const { titleStyle, subTitleStyle, title, subTitle, showButton, status } = this.props;
-        const { container, alertWrapper, circleStyle, smallCircle, smallCircleSecond, iconStyle, statusWrapper, statusText, responseWrapper, responseText, buttonStyle, buttonText } = Styles;
+        const { titleStyle, messageStyle, title, message, showButton, status, visible, overlay, overlayColor, buttonText, confirmButtonStyle, confirmButtonTextStyle, circleColor } = this.props;
+        const { container, alertWrapper, circleStyle, smallCircle, smallCircleSecond, iconStyle, statusWrapper, statusText, responseWrapper, responseText, buttonStyle, } = Styles;
         return (
-            <View pointerEvents='box-none' style={container}>
-                <Animated.View style={[alertWrapper, this.props.cardStyle, {
+            <View pointerEvents='box-none' style={[container, {
+                backgroundColor: visible && overlay && overlayColor
+            }]}>
+                <Animated.View style={[alertWrapper, this.props.containerStyle, {
                     transform: [{ scale: scale }],
                     opacity
                 }]}>
-                    <View style={[circleStyle, {
+                    <View style={[circleStyle, circleColor, {
                         backgroundColor: this.alertColor(status),
                         shadowColor: this.alertColor(status),
                     }]}>
-                        <View style={[smallCircle, {
+                        <View style={[smallCircle, circleColor, {
                             backgroundColor: this.alertColor(status),
                             shadowColor: this.alertColor(status),
                         }]} />
-                        <View style={[smallCircleSecond, {
+                        <View style={[smallCircleSecond, circleColor, {
                             backgroundColor: this.alertColor(status),
                             shadowColor: this.alertColor(status),
                         }]} />
@@ -107,19 +110,21 @@ class Alert extends Component {
                         <Text style={[statusText, titleStyle, {
                             color: this.alertColor(status),
                         }]}>
-                            {title}
+                            {title ? title : 'Title'}
                         </Text>
                     </View>}
                     <View style={responseWrapper}>
-                        <Text style={[responseText, subTitleStyle]}>
-                            {subTitle}
+                        <Text style={[responseText, messageStyle]}>
+                            {message ? message : 'Lorem ipsum dolor sit amet'}
                         </Text>
                     </View>
-                    {showButton && <TouchableOpacity onPress={this.callBackFunc} activeOpacity={0.8} style={[buttonStyle, {
+                    {showButton && <TouchableOpacity onPress={this.callBackFunc} activeOpacity={0.8} style={[buttonStyle, confirmButtonStyle, {
                         backgroundColor: this.alertColor(status),
                     }]}>
-                        <Text style={buttonText}>
-                            Ok
+                        <Text style={[Styles.buttonText, {
+                            confirmButtonTextStyle
+                        }]}>
+                            {buttonText ? buttonText : 'Ok'}
                         </Text>
                     </TouchableOpacity>}
                 </Animated.View>
