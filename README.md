@@ -1,5 +1,5 @@
 
-# React Native Scale Alerts
+# React Native Scale Alert
 
 ### Demo 
 
