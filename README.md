@@ -3,7 +3,7 @@
 
 ### Demo 
 
-![alt text](https://im4.ezgif.com/tmp/ezgif-4-72ea465908d2.gif)
+! [] (alert.gif)
 
 
 ## Getting Started
