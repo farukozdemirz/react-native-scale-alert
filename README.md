@@ -45,16 +45,15 @@ export default class App extends React.Component {
     return (
        <View style={styles.container}>
                 <TouchableOpacity 
-					onPress={() => this.showAlert('success')}
-					style={styles.buttonStyle}
-				>
+			onPress={() => this.showAlert('success')}
+			style={styles.buttonStyle}>
                     <Text style={styles.textStyle}>
                         CLICK ME
                     </Text>
                 </TouchableOpacity>
                 <Alert
                     overlay={true}
-					overlayColor='rgba(0,0,0,0.1)'
+		    overlayColor='rgba(0,0,0,0.1)'
                     visible={visible}
                     status={visible}
                     title='SUCCESS'
