@@ -1,5 +1,5 @@
 
-# React Native Scale Alert
+# React Native Scale Alert - deprecated
 
 ### Demo 
 
